@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>unit-4-game</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+
+</head>
+
+<body>
+
+    <section>
+
+        <header id="header">
+            <p id= "title">CrystalsCollector!</p>
+        </header>
+            
+        <div id="instructions">
+            <p>You will be given a random number at the start of the <br>game.</p><br>
+            <p>There are four crystals below. By clicking on a crystal you <br>will add a specific amount of points to your total score</p><br>
+            <p>You win the game by matching your total score to random <br>number, you lose the game if your total score goes above <br>the random number.</p><br>
+            <p>The value of each crystal is hidden from you until you <br>click on it.</p><br>
+            <p>Each time when the game starts, the game will change the <br>values of each crystal</p><br>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <p id="number-goal">
+                </div>
+                <div class="col-md-1">
+                    <p id="wins">
+                    <p id="losses">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="crystals">
+            <img src="https://previews.123rf.com/images/keltmd/keltmd1612/keltmd161200134/68723121-cartoon-realistic-gems-jewels-diamond-brilliant-vector-gemstone-and-crystal-precious-glass-elements-.jpg" id="crystal-one">
+            <img src="https://previews.123rf.com/images/keltmd/keltmd1612/keltmd161200137/68723124-cartoon-realistic-gems-jewels-diamond-brilliant-vector-gemstone-and-crystal-precious-glass-elements-.jpg" id="crystal-two">
+            <img src="https://previews.123rf.com/images/keltmd/keltmd1612/keltmd161200138/68723125-cartoon-realistic-gems-jewels-diamond-brilliant-vector-gemstone-and-crystal-precious-glass-elements-.jpg" id="crystal-three">
+            <img src="https://previews.123rf.com/images/keltmd/keltmd1612/keltmd161200128/68723115-cartoon-realistic-gems-jewels-diamond-brilliant-vector-gemstone-and-crystal-precious-glass-elements-.jpg" id="crystal-four">
+        </div>
+            
+        <div class="final">
+            <p id="final-alert">Your total score is: </p>
+            <p id="total-score"></p>
+        </div>
+        
+    </section>
+
+    <script type="text/javascript">
+
+        var nmbrGoal=0;
+        var crystalOne=0;
+        var crystalTwo=0;
+        var crystalThree=0;
+        var crystalFour=0;
+        var wins=0;
+        var losses=0;
+        var totalScore=0;
+
+        function randomizer(){
+            nmbrGoal=Math.floor((Math.random()*120)+19);
+            crystalOne=Math.floor((Math.random()*12)+1);
+            crystalTwo=Math.floor((Math.random()*12)+1);
+            crystalThree=Math.floor((Math.random()*12)+1);
+            crystalFour=Math.floor((Math.random()*12)+1);
+            totalScore=0;
+            console.log("nmbrGoal: "+nmbrGoal);
+            console.log("crystalOne: "+crystalOne);
+            console.log("crystalTwo: "+crystalTwo);
+            console.log("crystalThree: "+crystalThree);
+            console.log("crystalFour: "+crystalFour);
+        }
+
+        function stats(){
+            $("#number-goal").text(nmbrGoal);
+            $("#wins").text("Wins: "+wins);
+            $("#losses").text("Losses: "+losses);
+            $("#total-score").text(totalScore);
+            console.log("wins: "+wins);
+            console.log("losses: "+losses);
+            console.log("totalScore: "+totalScore);
+        };
+
+        $(document).ready(function(){
+
+            randomizer();
+            stats();
+
+            $("#crystal-one").click(function(){
+                crystalOne=parseInt(crystalOne);
+                totalScore+=crystalOne;
+
+                if (totalScore===nmbrGoal){
+                    wins++
+                    randomizer();
+                }
+                
+                else if(totalScore>=nmbrGoal){
+                    losses++
+                    randomizer();
+                }
+                stats();
+            });
+
+            $("#crystal-two").click(function(){
+                crystalTwo=parseInt(crystalTwo);
+                totalScore+=crystalTwo;
+
+                if (totalScore===nmbrGoal){
+                    wins++
+                    randomizer();
+                }
+                
+                else if(totalScore>=nmbrGoal){
+                    losses++
+                    randomizer();
+                }
+                stats();
+            });
+
+            $("#crystal-three").click(function(){
+                crystalThree=parseInt(crystalThree);
+                totalScore+=crystalThree;
+
+                if (totalScore===nmbrGoal){
+                    wins++
+                    randomizer();
+                }
+                
+                else if(totalScore>=nmbrGoal){
+                    losses++
+                    randomizer();
+                }
+                stats();
+            });
+
+            $("#crystal-four").click(function(){
+                crystalFour=parseInt(crystalFour);
+                totalScore+=crystalFour;
+
+                if (totalScore===nmbrGoal){
+                    wins++
+                    randomizer();
+                }
+                
+                else if(totalScore>=nmbrGoal){
+                    losses++
+                    randomizer();
+                }
+                stats();
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

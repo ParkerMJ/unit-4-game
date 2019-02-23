@@ -1,0 +1,50 @@
+body{
+    background-color: lightblue;
+}
+#header{
+    float: left;
+    padding: 15px 0; 15px 0px;
+    background-color: darkorange;
+    font-size: 35px;
+    margin: 10px;
+}
+#title{
+    color: white;
+    text-align: center;
+}
+#instructions{
+    clear: left;
+    background-color: tan;
+    color: green;
+}
+#number-goal{
+    float: left;
+    background-color: lightgreen;
+    font-size: 30px;
+}
+.col-md-1{
+    float: left;
+    background-color: cyan;
+}
+#crystal-one,
+#crystal-two,
+#crystal-three,
+#crystal-four{
+    height: 100px;
+    width: 100px;
+}
+#final-alert{
+    float: left;
+    background-color: green;
+    color: white;
+    margin: 10px;
+    padding: 10px;
+    font-size: 30px;
+}
+#total-score{
+    clear: left;
+    background-color: green;
+    color: white;
+    margin: 10px;
+    font-size: 30px;
+}
